@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { useEffect } from "react";
+import { getAllPeoples } from './services/swapi'
+import People from "./components/people/People";
+import { useDispatch } from "react-redux";
+import { initPeople } from "./reducers/peopleReducer";
 import './App.css';
 
 function App() {
+
+  const dispatch = useDispatch();
+
+  useEffect(()=> {
+    getAllPeoples().then((peoples) => {
+      dispatch(initPeople(peoples));
+    })
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div> 
+      <h1 className="title">Personajes star wars </h1>
+      <People />
     </div>
   );
 }
