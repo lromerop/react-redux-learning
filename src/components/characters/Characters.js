@@ -32,6 +32,7 @@ function Characters() {
     <div className="container">
       <div className="row">
         <div className="col-md-12">
+          <h1 className="title pt-2 mb-2">Characters Star wars</h1>
           <ul className="list">{loading ? listCharacters() : "Cargando..."}</ul>
         </div>
         <div className="text-center">

@@ -9,7 +9,6 @@ function App() {
     <div>
       <Provider store={store}>
         <Navbar />
-        <h1 className="title pt-2">Characters star wars </h1>
         <Characters />
       </Provider>
     </div>
