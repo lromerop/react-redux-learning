@@ -1,20 +1,33 @@
 import axios from "axios";
-import { setPeopleList, changePageList } from "../store/slice/peoples";
+import {
+  setCharacters,
+  changePage,
+  randomPage,
+} from "../store/slice/characters";
 
-export const fetchAllPeoples = () => (dispatch) => {
+export const fetchAllCharacters = () => (dispatch) => {
   axios
     .get("https://swapi.dev/api/people")
     .then((response) => {
-      dispatch(setPeopleList(response.data.results));
+      dispatch(setCharacters(response.data));
     })
     .catch((error) => console.log(error));
 };
 
-export const fetchOtherPage = (id) => (dispatch) => {
+export const fetchRandomPage = (number) => (dispatch) => {
   axios
-    .get("https://swapi.dev/api/people/?page=" + id)
+    .get("https://swapi.dev/api/people/?page=" + number)
     .then((response) => {
-      dispatch(changePageList(response.data.results));
+      dispatch(randomPage(response.data));
+    })
+    .catch((error) => console.log(error));
+};
+
+export const fetchChangePage = (url) => (dispatch) => {
+  axios
+    .get(url)
+    .then((response) => {
+      dispatch(changePage(response.data));
     })
     .catch((error) => console.log(error));
 };

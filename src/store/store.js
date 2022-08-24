@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import peoplesReducer from './slice/peoples';
+import charactersReducer from "./slice/characters";
 
 const store = configureStore({
-    reducer: {
-        peoples: peoplesReducer
-    }
+  reducer: {
+    characters: charactersReducer,
+  },
 });
 
 export default store;

@@ -2,9 +2,9 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-dark bg-dark">
       <div className="container">
-        <h1 className="navbar-brand">
+        <a className="navbar-brand" href="/">
           Learn React & Redux TK
-        </h1>
+        </a>
       </div>
     </nav>
   );
